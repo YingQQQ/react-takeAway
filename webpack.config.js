@@ -8,6 +8,7 @@ const {
 } = require('./tools/path');
 const dev = require('./tools/webpack.dev');
 const prod = require('./tools/webpack.prod');
+const template = require('./tools/template.config');
 
 const TARGE = process.env.npm_lifecycle_event;
 const IS_DEV = TARGE === 'start';
@@ -24,13 +25,6 @@ const babelConfig = Object.assign({}, pkg.babel, {
   }] : x)
 });
 
-const template = {
-  template: require('html-webpack-template'),
-  title: '饿了吗',
-  appMountId: 'app',
-  inject: false,
-  // favicon:'./favicon.png'
-}
 
 const common = {
   devtool: IS_DEV ? 'eval-source-map' : 'source-map',
