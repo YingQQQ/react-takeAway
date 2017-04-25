@@ -11,15 +11,12 @@ const template = {
     },{
       name:'screen-orientation',
       content: 'portrait'
-    }
     },{
       name:'format-detection',
       content: 'telephone=no'
-    }
     },{
       name:'apple-mobile-web-app-capable',
       content: 'yes'
-    }
     },{
       name:'full-screen',
       content: 'yes'

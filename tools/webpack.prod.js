@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const {
-  build
+  build,
+  app
 } = require('./path');
 
 const vendor = ['react', 'react-dom'];
@@ -13,24 +14,22 @@ const prod = {
     app: app
   },
   module: {
-    rules: [
-      {
-        test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          'style-loader',
-          use: [
-            'css-loader',
-            {
-              loader: 'postcss-loader',
-              options: {
-                config: './postcss.config.js'
-              }
-            },
-            'sass-loader'
-          ]
-        })
-      }
-    ]
+    rules: [{
+      test: /\.s?css$/,
+      use: ExtractTextPlugin.extract({
+        fallback:'style-loader',
+        use: [
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: './postcss.config.js'
+            }
+          },
+          'sass-loader'
+        ]
+      })
+    }]
   },
   plugins: [
     new CleanWebpackPlugin([build], {
@@ -43,7 +42,7 @@ const prod = {
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {
-        warnings: isVerbose,
+        warnings: false,
       },
     }),
     new ExtractTextPlugin('[name].[chunkhash].css')

@@ -3,7 +3,6 @@ const {
   app
 } = require('./path');
 
-let stylesLoader = ;
 
 const dev = {
   entry: {
@@ -14,7 +13,7 @@ const dev = {
       app
     ]
   },
-  devServer = {
+  devServer: {
     historyApiFallback: true,
     hot: true,
     inline: true,
