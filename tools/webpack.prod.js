@@ -23,7 +23,11 @@ const prod = {
           {
             loader: 'postcss-loader',
             options: {
-              config: './postcss.config.js'
+              plugins: [
+                require('autoprefixer')({
+                  browsers: ['last 5 versions'],
+                })
+              ]
             }
           },
           'sass-loader'
