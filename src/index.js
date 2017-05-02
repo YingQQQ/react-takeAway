@@ -10,6 +10,7 @@ render(
   </AppContainer>,
   rootEl,
 );
+
 // if (module.hot) {
 //   module.accept('./Root.js')
 // }
