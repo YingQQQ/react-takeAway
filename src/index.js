@@ -6,7 +6,7 @@ const rootEl = window.document.getElementById('app');
 
 render(
   <AppContainer>
-    <h1>hello</h1>
+    <h1>hello world</h1>
   </AppContainer>,
   rootEl,
 );
