@@ -2,15 +2,23 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-const rootEl = window.document.getElementById('app');
+import App from './containers/App';
 
-render(
+const rootEl = window
+  .document
+  .getElementById('app');
+
+const renderComponent = Component => render(
   <AppContainer>
-    <h1>hello world</h1>
+    <Component />
   </AppContainer>,
   rootEl,
 );
 
-// if (module.hot) {
-//   module.accept('./Root.js')
-// }
+if (module.hot) {
+  module
+    .hot
+    .accept('./containers/App', () => {
+      renderComponent(App);
+    });
+}
