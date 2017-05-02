@@ -68,7 +68,8 @@
     "rules": {
       "react/jsx-filename-extension": "off",
       "react/require-default-props": "off",
-      "import/no-extraneous-dependencies": "off"
+      "import/no-extraneous-dependencies": "off",
+      "no-console": "off"
     },
     "env": {
       "browser": true
